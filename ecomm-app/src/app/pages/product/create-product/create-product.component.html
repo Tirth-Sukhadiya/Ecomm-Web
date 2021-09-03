@@ -1,0 +1,73 @@
+<div class="product-page">
+    <div class="product-page-container">
+        <ol class="product-breadcrumbs">
+        </ol>
+        <div style="text-align: left;" class="col-md-12">
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+                <label for="name">Name</label>
+                <div>
+                    <input type="text" formControlName="name">
+                    <div *ngIf="productForm.controls['name'].invalid 
+                        && (productForm.controls['name'].dirty || productForm.controls['name'].touched)"
+                        class="alert-product">
+                        <div *ngIf="productForm.controls['name'].errors?.required">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+
+                <label for="image_path">Product Image</label>
+                <div>
+                    <input type="file" formControlName="image_path" accept=".jpg,.png,.jpeg"
+                        (change)="handleUpload($event)">
+                    <!-- <img [src]="Logo" > -->
+                    <div *ngIf="productForm.controls['image_path'].invalid 
+                        && (productForm.controls['image_path'].dirty || productForm.controls['image_path'].touched)"
+                        class="alert-product">
+                        <div *ngIf="productForm.controls['image_path'].errors?.required">
+                            Image is required.
+                        </div>
+                    </div>
+                </div>
+
+                <label for="description">Description</label>
+                <div>
+                    <textarea formControlName="description"></textarea>
+                    <div *ngIf="productForm.controls['description'].invalid 
+                        && (productForm.controls['description'].dirty || productForm.controls['description'].touched)"
+                        class="alert-product">
+                        <div *ngIf="productForm.controls['description'].errors?.required">
+                            Description is required.
+                        </div>
+                    </div>
+                </div>
+
+                <label for="price">Price</label>
+                <div>
+                    <input type="number" formControlName="price">
+                    <div *ngIf="productForm.controls['price'].invalid 
+                        && (productForm.controls['price'].dirty || productForm.controls['price'].touched)"
+                        class="alert-product">
+                        <div *ngIf="productForm.controls['price'].errors?.required">
+                            Price is required.
+                        </div>
+                    </div>
+                </div>
+
+                <label for="unit">Unit</label>
+                <div>
+                    <input type="text" formControlName="unit">
+                    <div *ngIf="productForm.controls['unit'].invalid 
+                        && (productForm.controls['unit'].dirty || productForm.controls['unit'].touched)"
+                        class="alert-product">
+                        <div *ngIf="productForm.controls['unit'].errors?.required">
+                            Unit is required.
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="button button-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>

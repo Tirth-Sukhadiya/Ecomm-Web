@@ -1,0 +1,28 @@
+<div class="header-image">
+    <div class="header-block">
+        <div class="header-text">
+            <div class="header-text-title">Plates</div>
+            <p>
+                Beautify your dining table with Golden Fish Melamine Square Snack Plate. This attractive Snack Plate set will create a lasting impression on your guests. This designed Snack Plate set is perfect for home, kitchen and offices. Serve your food in perfect style when you have guests at home or when you decide to surprise your family. Here is the Golden fish Plate series from crockery which is surely the best pick for any home.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="layout-container">
+    <div class="product-grid">
+        <div class="col-md-4 col-sm-6" *ngFor="let product of products;let i = index">
+            <div class="image-container">
+                <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.image_path + ')'}"></div>
+                <div class="overlay">
+                    <div class="button button-primary" [routerLink]="['../product',product.id]">View Details</div>
+                    <div class="button button-primary" (click)="addToCart(product)">Add To Cart</div>
+                </div>
+            </div>
+            <div class="product-details">
+                <div class="product-brand">{{product.brand}}</div>
+                <div class="product-title">{{product.name}}</div>
+                <div class="product-price">{{product.price | currency :'USD' }}</div>
+            </div>
+        </div>
+    </div>
+</div>
